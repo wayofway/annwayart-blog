@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Annwayli
+title: Annwayli Blog
 subtitle: Annwayart
 description: Annwayli's blog
 keywords: annwayli, annwayart, wayofway, 李蔚, 李蔚博客, 安安
@@ -19,6 +19,14 @@ permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Header
+menu:
+  Home: /
+  About: /about
+  Contact: /contact
+  Github: https://github.com/wayofway
+  Instagram: https://www.instagram.com/wayofway_hku/
 
 # Directory
 source_dir: source
@@ -97,7 +105,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: edinburgh
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
