@@ -41,6 +41,7 @@ input:focus, textarea:focus {
 .portfolio-content {
 	line-height: 2;
 	color: #555;
+	font-size: 18px;
 }
 
 .portfolio-content a {

@@ -3,7 +3,7 @@
 </div>
 <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1><%- item.title || theme.default_post_title || "Untitled" %></h1>
-  <label><%- date(item.date || '') %></label>
+  <label><%- date(item.date || '') + ' ' + time(item.date || '') %></label>
 </div>
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
   <%- item.content %>
