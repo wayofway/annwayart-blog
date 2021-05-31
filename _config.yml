@@ -23,9 +23,8 @@ pretty_urls:
 # Header
 menu:
   Home: /
-  About: /about
-  Contact: /contact
   Learning: https://fe-learning.annwayart.com/
+  About: /about
   Github: https://github.com/wayofway/
   Instagram: https://www.instagram.com/wayofway_hku/
 
