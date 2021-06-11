@@ -23,6 +23,7 @@ pretty_urls:
 # Header
 menu:
   Home: /
+  Nickname: /nickname
   Learning: https://fe-learning.annwayart.com/
   About: /about
   Github: https://github.com/wayofway/

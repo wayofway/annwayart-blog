@@ -182,3 +182,16 @@ h1, h2, h3 {
 	margin: 0 10px;
 	color: #000;
 }
+
+.page-title {
+	position: absolute;
+	font-family: 'slidefu';
+	top: calc(50% - 60px);
+	left: calc(50% - 120px);
+	font-size: 80px;
+}
+
+.opacity-img {
+	filter: opacity(0.6);
+	border-radius: 10px;
+}
