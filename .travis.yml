@@ -1,26 +1,47 @@
-language: node_js # 构建所需的语言环境
-node_js:
-  - "v12.18.3"  # 对应的版本
+# 指定构建环境是Node.js，当前版本是稳定版
+anguage: node_js
+node_js: stable
+
+env:
+ global:
+   - URL_REPO: https://github.com/wayofway/annwayart-blog
+
+# 设置钩子只检测blog-source分支的push变动
 branches:
   only:
-  - master    # 构建的分支
+    - master
+
+# 设置缓存文件
 cache:
   directories:
-    - node_modules # 缓存 node_modules 加快构建速度
-before_script: ## 根据你所用的主题和自定义的不同，这里会有所不同
-  - npm install -g hexo-cli # 在 CI 环境内安装 Hexo  
-  - npm install # 在根目录安装站点需要的依赖 
+    - node_modules
+
+#在构建之前安装hexo环境
+before_install:
+  - npm install -g hexo-cli
+
+#安装git插件和搜索功能插件
+install:
+  - npm install
+
+  # 设置git提交名，邮箱；替换真实token到_config.yml文件
+before_script:
+  - git config user.name "wayofway"
+  - git config user.email "hkuliwei@126.com"
+  # 替换同目录下的_config.yml文件中github_token字符串为travis后台刚才配置的变量，注>意此处sed命令用了双引号。单引号无效！
+  - sed -i "s/github_token/${GH_TOKEN}/g" _config.yml || exit 1
+
+# 执行清缓存，生成网页操作
 script:
-  - hexo clean # 清除缓存
-  - hexo generate # generate static files
+  - hexo clean
+  - hexo generate
   - hexo deploy
-# deploy: # 根据个人情况，这里会有所不同
-#   provider: pages
-#   skip_cleanup: true # 构建完成后不清除
-#   token: $GH_TOKEN # 你刚刚设置的 token
-#   keep_history: true # 保存历史
-#   fqdn: blog.ne0ng.page # 自定义域名，使用 username.github.io 可删除
-#   on:
-#     branch: source # hexo 站点源文件所在的 branch
-#   local_dir: public 
-#   target_branch: master # 存放生成站点文件的 branch，使用 username.github.io 必须是 master
+
+# configure notifications (email, IRC, campfire etc)
+# please update this section to your needs!
+# https://docs.travis-ci.com/user/notifications/
+notifications:
+  email:
+    - hkuliwei@126.com
+  on_success: change
+  on_failure: always
