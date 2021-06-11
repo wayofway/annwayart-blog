@@ -28,7 +28,6 @@ install:
 script:
   - hexo clean
   - hexo generate
-  # - hexo deploy
 
 deploy: # 根据个人情况，这里会有所不同
   provider: pages
