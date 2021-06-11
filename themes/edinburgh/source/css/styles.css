@@ -40,7 +40,7 @@ input:focus, textarea:focus {
 
 @font-face{
 	font-family: 'slidefu';
-	src : url('../fonts/slidefu.ttf');
+	src : url('../font/slidefu.ttf');
 }
 
 .portfolio-title {
