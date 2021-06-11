@@ -24,18 +24,22 @@ before_install:
 install:
   - npm install
 
-  # 设置git提交名，邮箱；替换真实token到_config.yml文件
-before_script:
-  - git config user.name "wayofway"
-  - git config user.email "hkuliwei@126.com"
-  # 替换同目录下的_config.yml文件中github_token字符串为travis后台刚才配置的变量，注>意此处sed命令用了双引号。单引号无效！
-  - sed -i "s/github_token/${GH_TOKEN}/g" _config.yml || exit 1
-
 # 执行清缓存，生成网页操作
 script:
   - hexo clean
   - hexo generate
-  - hexo deploy
+  # - hexo deploy
+
+deploy: # 根据个人情况，这里会有所不同
+  provider: pages
+  skip_cleanup: true # 构建完成后不清除
+  token: $GH_TOKEN # 你刚刚设置的 token
+  keep_history: true # 保存历史
+  fqdn: blog.annwayart.com # 自定义域名，使用 username.github.io 可删除
+  on:
+    branch: master # hexo 站点源文件所在的 branch
+  local_dir: public 
+  target_branch: gh-pages # 存放生成站点文件的 branch，使用 username.github.io 必须是 master
 
 # configure notifications (email, IRC, campfire etc)
 # please update this section to your needs!
