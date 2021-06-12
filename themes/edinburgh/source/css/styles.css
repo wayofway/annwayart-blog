@@ -195,3 +195,10 @@ h1, h2, h3 {
 	filter: opacity(0.6);
 	border-radius: 10px;
 }
+
+#myaudio {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+}

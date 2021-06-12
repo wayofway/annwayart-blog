@@ -54,6 +54,9 @@ cover_image: images/company.jpeg
     })
   </script>
   <style>
+    #nickname {
+      margin-bottom: 35px;
+    }
     .namecube {
       position: relative;
       display: flex;
