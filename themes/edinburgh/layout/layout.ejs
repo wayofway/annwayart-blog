@@ -4,6 +4,7 @@
   <%- partial('_partial/head') %>
 
   <body>
+    <audio src="/music/cannon.mp3" autoplay controls loop id="myaudio"></audio>
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
       <%- partial('_partial/header') %>
@@ -15,9 +16,10 @@
     <nav class="page-nav">
         <%- paginator({prev_text: '<', next_text: '>'}) %>
     </nav>
-<% } %>
+  <% } %>
   	</div>
   </body>
+    
   <script>
     const COLOR_MAP = {
       SUNNY: '#ffeaa7',
@@ -36,5 +38,12 @@
         document.body.style.backgroundColor = COLOR_MAP[WEATHER_MAP[randomNum]];
       }
     }
+
+    /*
+    * muted 静音
+    * autoplay 自动播放
+    * loop 循环播放
+    */
+    var audio = document.getElementById('myaudio');
   </script>
 </html>
