@@ -19,6 +19,7 @@ cache:
 #在构建之前安装hexo环境
 before_install:
   - npm install -g hexo-cli
+  - npm install -g gulp
 
 #安装git插件和搜索功能插件
 install:
@@ -26,8 +27,7 @@ install:
 
 # 执行清缓存，生成网页操作
 script:
-  - hexo clean
-  - hexo generate
+  - npm run package
 
 deploy: # 根据个人情况，这里会有所不同
   provider: pages

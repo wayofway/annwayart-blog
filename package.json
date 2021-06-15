@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "package": "hexo clean && hexo g && gulp",
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
@@ -18,10 +19,18 @@
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-index": "^2.0.0",
     "hexo-generator-tag": "^1.0.0",
+    "hexo-lazyload-image": "^1.0.10",
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-marked": "^4.0.0",
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
     "hexo-theme-landscape": "^0.0.3"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-smushit": "^1.2.0",
+    "gulp-uglify": "^3.0.2"
   }
 }
