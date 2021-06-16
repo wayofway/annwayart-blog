@@ -18,7 +18,7 @@ gulp.task('minify-html', function () {
         .pipe(minifyhtml())
         .pipe(gulp.dest('./public'))
 });
-// 压缩 public/js 目录 js文件，忽略/public/lib/blog-encrypt.js
+// 压缩 public/js 目录 js文件
 gulp.task('minify-js', function () {
     return gulp.src('./public/**/*.js')
         .pipe(uglify())
@@ -32,5 +32,5 @@ gulp.task('minify-images', function() {
 
 });
 
-// 分别执行css、html、js的压缩任务
+// 分别执行css、images、html、js的压缩任务
 gulp.task('default', gulp.parallel('minify-css', 'minify-images', 'minify-html', 'minify-js' ));
