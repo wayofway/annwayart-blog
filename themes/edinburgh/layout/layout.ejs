@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Head tag -->
-  <%- partial('_partial/head') %>
+<!-- Head tag -->
+<%- partial('_partial/head') %>
 
   <body>
-    <audio src="/music/cannon.mp3" autoplay controls loop id="myaudio"></audio>
-  	<div class="container-fluid navbar-container m-sm-5">
+    <div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
       <%- partial('_partial/header') %>
 
-  		<div class="row">
-  			<%- body %>
-      </div>
-      <% if (page.total > 1) { %>
-    <nav class="page-nav">
-        <%- paginator({prev_text: '<', next_text: '>'}) %>
-    </nav>
-  <% } %>
-  	</div>
+        <div class="row">
+          <%- body %>
+        </div>
+        <% if (page.total> 1) { %>
+          <nav class="page-nav">
+            <%- paginator({prev_text: '<' , next_text: '>' }) %>
+          </nav>
+          <% } %>
+    </div>
   </body>
-    
+
   <script>
     const COLOR_MAP = {
       SUNNY: '#ffeaa7',
@@ -29,21 +28,15 @@
       CLOUDY: '#dfe6e9',
     };
     const WEATHER_MAP = ['SUNNY', 'RAINY', 'SNOWY', 'WINDY', 'CLOUDY'];
-    var randomNum = (Math.random()*5 - 1).toFixed();
-    if(randomNum >= 0) {
+    var randomNum = (Math.random() * 5 - 1).toFixed();
+    if (randomNum >= 0) {
       var nickNode = document.querySelector('#nickname');
-      if(nickNode) {
+      if (nickNode) {
         document.body.style.backgroundColor = COLOR_MAP.SUNNY;
       } else {
         document.body.style.backgroundColor = COLOR_MAP[WEATHER_MAP[randomNum]];
       }
     }
-
-    /*
-    * muted 静音
-    * autoplay 自动播放
-    * loop 循环播放
-    */
-    var audio = document.getElementById('myaudio');
   </script>
+
 </html>

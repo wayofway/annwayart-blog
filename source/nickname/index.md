@@ -6,7 +6,8 @@ cover_image: images/company.jpeg
 
 <body>
   <div id="nickname">
-  </div>
+  </div>  
+  <audio src="/music/cannon.mp3" autoplay controls loop id="myaudio"></audio>
   <script>
     var NICKNAMES = [
       { name: '小青', rank: 100 },
