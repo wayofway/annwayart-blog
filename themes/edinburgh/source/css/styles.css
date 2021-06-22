@@ -161,6 +161,7 @@ h3 {
 .hovereffect:hover .overlay-text {
   opacity: 1;
   filter: alpha(opacity=100);
+  font-family: "slidefu";
 }
 
 .hovereffect img {
