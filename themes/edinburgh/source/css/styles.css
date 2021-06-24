@@ -50,6 +50,13 @@ textarea:focus {
   outline: none;
 }
 
+.date_title {
+  width: 100%;
+}
+.date_title p {
+  font-size: 1.3rem;
+}
+
 .portfolio-title {
   font-family: "slidefu";
   font-size: 48px;

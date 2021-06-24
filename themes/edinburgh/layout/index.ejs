@@ -1,3 +1,17 @@
-<% page.posts.forEach(function(item){ %>
-    <%- partial('_partial/portfolio-index', {item: item}) %>
-<% }); %>
+<div class="row">
+    <% var lastMonth; %>
+    <% page.posts.each(function (post) { %>
+        <% var year=post.date.year(); %> 
+        <% var month=post.date.month() + 1; %> 
+        <% if (lastMonth != month){ %>
+            <div class="date_title">
+                <p>
+                <span class="jing">#</span>
+                <%= year %>.<%= month %>
+                </p>
+            </div>
+            <% lastMonth=month; %>
+        <% } %>
+        <%- partial('_partial/portfolio-index', {item: post}) %>
+    <% }) %>
+</div>
