@@ -17,13 +17,22 @@ const DIAGRAM_MAP = {
   0: "坤",
 };
 
+const CHANGE_MAP = {
+  1: "初",
+  2: "二",
+  3: "三",
+  4: "四",
+  5: "五",
+  0: "上",
+};
+
 var originNum = `${up}-${bot}-${change}`;
 
-var diagramWords = `上${DIAGRAM_MAP[up]}下${DIAGRAM_MAP[bot]} 变爻：${change}`;
+var diagramWords = `${DIAGRAM_MAP[up]}上${DIAGRAM_MAP[bot]}下 变爻在${CHANGE_MAP[change]}`;
 
-var searchWords = `${diagramWords}卦详解 易安居吉祥网`;
+var searchWords = `${diagramWords} 易安居吉祥网`;
 
-var analysisLink = `https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=${encodeURI(
+var analysisLink = `https://www.baidu.com/s?ie=utf-8&wd=${encodeURI(
   searchWords
 )}`;
 

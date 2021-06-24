@@ -5,10 +5,10 @@ date: 2021-05-31 15:54:33
 
 # Annwayli
 
-A programmer
+一名简单的程序员
 
 <div>
-  <label>每日一卦</label>
+  <label>每日一卦：</label>
   <a id="eight-diagram" href="" target="_blank"></a>
 </div>
 <script>
