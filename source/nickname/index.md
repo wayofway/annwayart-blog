@@ -10,6 +10,7 @@ cover_image: images/company.jpeg
   <audio src="/music/cannon.mp3" autoplay controls loop id="myaudio"></audio>
   <script>
     var NICKNAMES = [
+      { name: '立小一', rank: 100 },
       { name: '木目心', rank: 100 },
       { name: '小青', rank: 100 },
       { name: '疼疼', rank: 100 },
