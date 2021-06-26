@@ -1,8 +1,17 @@
 <div class="row">
+    <% var count = 1; %>
+    <% page.posts.each(function (post) { %>
+        <% if (page.current === 1 && count <= 6){ %>
+            <%- partial('_partial/portfolio-index', {item: post}) %>
+        <% } %>
+        <% count++; %>
+    <% }) %>
+</div>
+<div class="row">
     <% var lastMonth; %>
     <% page.posts.each(function (post) { %>
         <% var year=post.date.year(); %> 
-        <% var month=post.date.month() + 1; %> 
+        <% var month=post.date.month() + 1; %>
         <% if (lastMonth != month){ %>
             <div class="date_title">
                 <p>
@@ -12,6 +21,6 @@
             </div>
             <% lastMonth=month; %>
         <% } %>
-        <%- partial('_partial/portfolio-index', {item: post}) %>
+        <%- partial('_partial/list', {item: post}) %>
     <% }) %>
 </div>

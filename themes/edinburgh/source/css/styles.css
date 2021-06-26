@@ -11,6 +11,8 @@
 
 body {
   font-family: "slidefu", sans-serif;
+  max-width: 950px;
+  margin: 0 auto;
 }
 
 form {
@@ -54,7 +56,7 @@ textarea:focus {
   width: 100%;
 }
 .date_title p {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .portfolio-title {
@@ -219,4 +221,27 @@ span {
   bottom: 0;
   left: 0;
   z-index: 10;
+}
+
+.listrow {
+  width: 100%;
+  cursor: pointer;
+  color: #000;
+  font-size: 1.3rem;
+}
+
+.listrow .listrow-link {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  font-family: "slidefu";
+}
+
+.listrow .listrow-title {
+  font-family: "slidefu";
+}
+
+.listrow .listrow-date {
+  color: #000;
+  text-decoration: none;
 }

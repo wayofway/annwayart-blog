@@ -1,0 +1,10 @@
+<div class="listrow">
+  <a class="listrow-link" href="<%- config.root %><%- item.path %>">
+    <span class="listrow-title">
+      <%- item.title || theme.default_post_title || "Untitled" %>
+    </span>
+    <label class="listrow-date">
+      <%- date(item.date || '' ) %>
+    </label>
+  </a>
+</div>
