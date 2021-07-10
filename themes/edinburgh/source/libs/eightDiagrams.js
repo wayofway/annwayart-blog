@@ -1,11 +1,3 @@
-var bot = (Math.random() * 1000).toFixed();
-var up = (Math.random() * 1000).toFixed();
-var change = (Math.random() * 1000).toFixed();
-
-bot %= 8;
-up %= 8;
-change %= 6;
-
 const DIAGRAM_MAP = {
   1: "乾",
   2: "兑",
@@ -25,6 +17,36 @@ const CHANGE_MAP = {
   5: "五",
   0: "上",
 };
+
+// 今天
+const curDay = new Date().getDate();
+// 缓存
+const LastUpdatedDate = localStorage.getItem("last_updated_day") || "";
+let diagramCache = localStorage.getItem("diagram") || "";
+
+let bot;
+let up;
+let change;
+
+if (diagramCache && curDay == LastUpdatedDate) {
+  // 有缓存无须更新
+  const { bottom, top, changes } = JSON.parse(diagramCache);
+  bot = bottom;
+  up = top;
+  change = changes;
+} else {
+  bot = (Math.random() * 1000).toFixed();
+  up = (Math.random() * 1000).toFixed();
+  change = (Math.random() * 1000).toFixed();
+
+  bot %= 8;
+  up %= 8;
+  change %= 6;
+
+  const diagram = { bottom: bot, top: up, changes: change };
+  localStorage.setItem("diagram", JSON.stringify(diagram));
+  localStorage.setItem("last_updated_day", curDay);
+}
 
 var originNum = `${up}-${bot}-${change}`;
 
