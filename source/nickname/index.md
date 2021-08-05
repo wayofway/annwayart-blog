@@ -25,6 +25,7 @@ cover_image: images/company.jpeg
       { name: '安艺物语', rank: 90 },
       { name: '鼓鼓', rank: 100 },
       { name: '口咸', rank: 50 },
+      { name: '小王', rank: 69 },
     ];
     NICKNAMES.sort(function(a, b) {
       return  b.rank - a.rank;
