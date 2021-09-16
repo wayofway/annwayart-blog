@@ -31,7 +31,11 @@ gulp.task("minify-js", function () {
 gulp.task("minify-images", function () {
   return gulp
     .src("./public/images/*.{jpeg,jpg,png,PNG,JPG,JPEG}")
-    .pipe(smushit())
+    .pipe(
+      smushit({
+        verbose: true,
+      })
+    )
     .pipe(gulp.dest("./public/images"));
 });
 

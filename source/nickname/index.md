@@ -26,6 +26,8 @@ cover_image: images/company.jpeg
       { name: '鼓鼓', rank: 100 },
       { name: '口咸', rank: 50 },
       { name: '小王', rank: 69 },
+      { name: '嘟嘟', rank: 100 },
+      { name: '零肆', rank: 80 },
     ];
     NICKNAMES.sort(function(a, b) {
       return  b.rank - a.rank;
