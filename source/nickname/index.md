@@ -15,6 +15,7 @@ cover_image: images/company.jpeg
       { name: '小青', rank: 100 },
       { name: '疼疼', rank: 100 },
       { name: '涂尔巴', rank: 100 },
+      { name: '小蟒', rank: 100 },
       { name: '冲儿', rank: 100 },
       { name: '胡子妹妹', rank: 100 },
       { name: '可达鸭', rank: 100 },
