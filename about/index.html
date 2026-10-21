@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function () {
+      var theme = "paper";
+      var lang = "zh";
+      try {
+        var savedTheme = localStorage.getItem("album-theme");
+        var savedLang = localStorage.getItem("album-lang");
+        if (savedTheme === "paper" || savedTheme === "night") theme = savedTheme;
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "night";
+        if (savedLang === "zh" || savedLang === "en") lang = savedLang;
+      } catch (error) {}
+      var root = document.documentElement;
+      root.setAttribute("data-theme", theme);
+      root.setAttribute("data-lang", lang);
+      root.lang = lang === "en" ? "en" : "zh-CN";
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>about - Annwayli Blog</title>
+  <link rel="icon" href="/favicon/favicon.ico">
+  
+    <meta name="description" content="Annwayli&#39;s blog">
+  
+  
+    <meta name="author" content="Annwayli">
+  
+  
+<link rel="stylesheet" href="/css/styles.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="wrap">
+    
+<header class="site-head">
+  <div class="bar">
+    <a class="brand" href="/">
+      安安戈
+    </a>
+    <nav class="site-nav">
+      
+        <a href="/">
+          <span class="zh">首页</span><span class="en">Home</span>
+        </a>
+      
+        <a href="/nickname">
+          <span class="zh">爱称</span><span class="en">Names</span>
+        </a>
+      
+        <a href="https://fe-learning.annwayart.com/" target="_blank" rel="noreferrer">
+          <span class="zh">Learning</span><span class="en">Learning</span>
+        </a>
+      
+        <a href="/about" aria-current="page">
+          <span class="zh">关于</span><span class="en">About</span>
+        </a>
+      
+        <a href="https://github.com/wayofway/" target="_blank" rel="noreferrer">
+          <span class="zh">Github</span><span class="en">Github</span>
+        </a>
+      
+        <a href="https://www.instagram.com/wayofway_hku/" target="_blank" rel="noreferrer">
+          <span class="zh">Instagram</span><span class="en">Instagram</span>
+        </a>
+      
+    </nav>
+    <div class="tools">
+      <button type="button" id="lang" aria-pressed="true">
+        <span class="zh">中文</span><span class="en">EN</span>
+      </button>
+      <button type="button" id="theme" aria-pressed="false">
+        <span class="label-paper"><span class="zh">晨宣</span><span class="en">Paper</span></span>
+        <span class="label-night"><span class="zh">夜读</span><span class="en">Night</span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+    <main id="stage">
+      <article class="page-sheet">
+  
+  <div class="page-body">
+    <h1 id="Annwayli"><a href="#Annwayli" class="headerlink" title="Annwayli"></a>Annwayli</h1><p>一名简单的程序员</p>
+<a class="slip" id="eight-diagram" href="" target="_blank" rel="noreferrer">
+  <i class="seal" aria-hidden="true">卦</i>
+  <span class="zh">每日一卦</span><span class="en">Daily hexagram</span>
+  <em id="diagram-words"></em>
+</a>
+<script>
+  var timer = setTimeout(function () {
+    if (analysisLink && diagramWords) {
+      var node = document.querySelector('#eight-diagram');
+      var words = document.querySelector('#diagram-words');
+      if (words) words.textContent = diagramWords;
+      if (node) node.setAttribute('href', analysisLink);
+    }
+    clearTimeout(timer);
+  }, 1200);
+</script>
+
+  </div>
+</article>
+
+
+    </main>
+  </div>
+  <script src="/libs/eightDiagrams.js"></script>
+  <script src="/libs/album.js"></script>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>

@@ -1,0 +1,387 @@
+/* Default is yao: 方正姚体 for titles, 仿宋 for text. */
+:root,
+[data-font="yao"] {
+  --font-title: "Iowan Old Style", "Palatino Linotype", "FZYaoti", "方正姚体", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+}
+[data-font="fang"] {
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+  --font-text: var(--font-title);
+}
+[data-font="song"] {
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", serif;
+  --font-text: var(--font-title);
+}
+[data-font="kai"] {
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", "Kaiti SC", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", serif;
+}
+[data-font="kai-fang"] {
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+}
+[data-font="xing"] {
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STXingkai", "华文行楷", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+}
+[data-font="li"] {
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STLiti", "华文隶书", "LiSu", "隶书", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+}
+[data-font="shu"] {
+  --font-title: "Iowan Old Style", "Palatino Linotype", "FZShuTi", "方正舒体", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+}
+[data-font="zhong"] {
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STZhongsong", "华文中宋", "STSong", "华文宋体", "SimSun", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+}
+
+:root {
+  --paper: #f3eee4;
+  --sheet: #faf6ee;
+  --ink: #2a2622;
+  --soft: #6f675c;
+  --faint: #9a9084;
+  --line: #e4d9c8;
+  --seal: #9d3d34;
+  --sky: #ebe4d6;
+  color-scheme: light;
+}
+html[data-theme="night"] {
+  --paper: #141311;
+  --sheet: #1c1b18;
+  --ink: #ebe4d6;
+  --soft: #b3a898;
+  --faint: #8a8074;
+  --line: #3a342c;
+  --seal: #d07a72;
+  --sky: #221f1b;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 18px;
+  line-height: 1.75;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font-family: inherit; }
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+img { max-width: 100%; }
+::selection { background: var(--line); color: var(--ink); }
+
+.wrap { width: min(920px, calc(100% - 48px)); margin: 0 auto; }
+.site-head {
+  padding: 28px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+.bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand, .vtitle, .essay h1, .name, .plaque, .page-body h1, .about-line {
+  font-family: var(--font-title);
+}
+.brand {
+  font-size: 22px;
+  letter-spacing: 0.28em;
+  flex: none;
+}
+.site-nav { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.site-nav a {
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  color: var(--soft);
+}
+.site-nav a[aria-current="page"],
+.site-nav a:hover { color: var(--ink); }
+.tools { display: flex; gap: 14px; align-items: center; font-size: 13px; letter-spacing: 0.14em; color: var(--soft); flex: none; }
+.tools button[aria-pressed="true"] { color: var(--seal); }
+html[data-lang="zh"] .en,
+html:not([data-lang]) .en { display: none; }
+html[data-lang="en"] .zh { display: none; }
+html[data-theme="paper"] .label-night,
+html:not([data-theme]) .label-night { display: none; }
+html[data-theme="night"] .label-paper { display: none; }
+
+#stage {
+  padding: 36px 0 72px;
+  animation: rise 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#stage.out { animation: none; opacity: 0; transform: translateY(10px); }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.leaf {
+  display: grid;
+  grid-template-columns: 1.5fr 148px;
+  gap: 28px;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  padding: 18px;
+  color: inherit;
+}
+.leaf:hover .vtitle { color: var(--seal); }
+.painting {
+  width: 100%;
+  min-height: 280px;
+  height: 100%;
+  display: block;
+  background: var(--sky);
+  overflow: hidden;
+}
+.painting img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  display: block;
+}
+.inscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 280px;
+  padding: 8px 4px;
+}
+.vtitle {
+  writing-mode: vertical-rl;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.42em;
+  line-height: 1;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+.meta { display: flex; gap: 12px; }
+.leaf .meta { flex-direction: column; align-items: flex-end; }
+.seals { display: inline-flex; gap: 8px; }
+.leaf .seals { flex-direction: column; align-items: flex-end; }
+.vdate {
+  writing-mode: vertical-rl;
+  letter-spacing: 0.22em;
+}
+.date { font-size: 13px; letter-spacing: 0.08em; color: var(--soft); }
+.seal {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--seal);
+  color: var(--seal);
+  font-size: 13px;
+  font-style: normal;
+  letter-spacing: 0;
+  line-height: 1;
+  flex: none;
+}
+.index { margin-top: 8px; }
+.row {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  color: inherit;
+}
+.row .thumb { height: 64px; width: 96px; overflow: hidden; display: block; }
+.row .thumb .painting,
+.row .thumb .painting img { min-height: 0; height: 64px; width: 96px; }
+.name { font-size: 18px; letter-spacing: 0.08em; }
+.row:hover .name { color: var(--seal); }
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 28px;
+  font-size: 15px;
+  letter-spacing: 0.16em;
+}
+.pager a { color: var(--soft); }
+.pager a:hover { color: var(--seal); }
+.is-disabled { color: var(--faint); }
+
+.back {
+  color: var(--soft);
+  letter-spacing: 0.16em;
+  font-size: 14px;
+}
+.back:hover { color: var(--seal); }
+.essay { max-width: 640px; }
+.essay .painting {
+  margin-top: 22px;
+  border: 1px solid var(--line);
+}
+.essay .meta { align-items: center; }
+.essay h1 {
+  font-weight: 400;
+  font-size: 36px;
+  letter-spacing: 0.18em;
+  margin: 22px 0 8px;
+}
+.essay-body p,
+.page-body p { margin: 0 0 0.9em; }
+.essay-body a {
+  border-bottom: 1px solid var(--line);
+}
+.essay-body a:hover { color: var(--seal); border-bottom-color: var(--seal); }
+.essay-body img,
+.page-body img { height: auto; }
+.essay-body blockquote {
+  margin: 0 0 0.9em;
+  padding-left: 1em;
+  border-left: 1px solid var(--line);
+  color: var(--soft);
+}
+.essay-body pre,
+.highlight {
+  background: var(--sky);
+  border: 1px solid var(--line);
+  overflow: auto;
+  margin: 0 0 0.9em;
+}
+.essay-body code,
+.highlight {
+  font-family: Consolas, "Sarasa Mono SC", "Songti SC", SimSun, monospace;
+  font-size: 0.86em;
+}
+.neighbors {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+.neighbors a { color: var(--soft); }
+.neighbors a:hover { color: var(--seal); }
+.neighbors span:last-child { text-align: right; }
+
+.page-painting {
+  margin-bottom: 28px;
+  border: 1px solid var(--line);
+}
+.headerlink { display: none; }
+.page-body h1 {
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.28em;
+  margin: 0 0 8px;
+}
+.about-line,
+.page-body > p {
+  font-size: 28px;
+  letter-spacing: 0.18em;
+}
+.play {
+  margin: 0 0 22px;
+  letter-spacing: 0.2em;
+  color: var(--seal);
+  font-size: 15px;
+}
+.play .when-playing { display: none; }
+.play[data-state="playing"] .when-paused { display: none; }
+.play[data-state="playing"] .when-playing { display: inline; }
+#nickname { width: min(560px, 100%); }
+.plaque {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  padding: 14px 18px;
+  margin: 0 0 12px;
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  text-align: left;
+}
+.plaque .num { display: none; }
+.plaque-score { font-size: 14px; letter-spacing: 0.12em; color: var(--faint); }
+.plaque.open { border-color: var(--seal); }
+.plaque.open .num { display: inline; }
+.plaque.open .plaque-score { color: var(--seal); }
+.slip {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 28px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--sheet);
+}
+.slip em { font-style: normal; color: var(--seal); letter-spacing: 0.12em; }
+
+html[data-lang="en"] .vtitle,
+html[data-lang="en"] .vdate { writing-mode: horizontal-tb; letter-spacing: 0.04em; }
+html[data-lang="en"] .vtitle { font-size: 28px; }
+html[data-lang="en"] .leaf { grid-template-columns: 1.45fr 230px; }
+html[data-lang="en"] .inscription { align-items: flex-start; }
+html[data-lang="en"] .leaf .meta { flex-direction: row; align-items: center; }
+html[data-lang="en"] .leaf .seals { flex-direction: row; }
+
+a:focus-visible,
+button:focus-visible { outline: 1px solid var(--seal); outline-offset: 3px; }
+
+@media (max-width: 720px) {
+  .wrap { width: min(920px, calc(100% - 32px)); }
+  .bar { flex-wrap: wrap; }
+  .leaf,
+  html[data-lang="en"] .leaf { grid-template-columns: 1fr; }
+  .inscription,
+  html[data-lang="en"] .inscription {
+    min-height: 0;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .vtitle,
+  .vdate,
+  html[data-lang="en"] .vtitle,
+  html[data-lang="en"] .vdate { writing-mode: horizontal-tb; letter-spacing: 0.12em; }
+  .vtitle,
+  html[data-lang="en"] .vtitle { font-size: 28px; }
+  .leaf .meta,
+  html[data-lang="en"] .leaf .meta { flex-direction: row; align-items: center; }
+  .leaf .seals,
+  html[data-lang="en"] .leaf .seals { flex-direction: row; }
+  .painting,
+  .leaf .painting,
+  .painting img,
+  .leaf .painting img { min-height: 200px; }
+  .row .thumb .painting,
+  .row .thumb .painting img { min-height: 0; height: 64px; }
+  .essay h1,
+  .page-body > p,
+  .about-line { font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #stage,
+  body,
+  .vtitle { transition: none; animation: none; }
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function () {
+      var theme = "paper";
+      var lang = "zh";
+      try {
+        var savedTheme = localStorage.getItem("album-theme");
+        var savedLang = localStorage.getItem("album-lang");
+        if (savedTheme === "paper" || savedTheme === "night") theme = savedTheme;
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "night";
+        if (savedLang === "zh" || savedLang === "en") lang = savedLang;
+      } catch (error) {}
+      var root = document.documentElement;
+      root.setAttribute("data-theme", theme);
+      root.setAttribute("data-lang", lang);
+      root.lang = lang === "en" ? "en" : "zh-CN";
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>暴雨红色预警 - Annwayli Blog</title>
+  <link rel="icon" href="/favicon/favicon.ico">
+  
+    <meta name="description" content="Annwayli&#39;s blog">
+  
+  
+    <meta name="author" content="Annwayli">
+  
+  
+<link rel="stylesheet" href="/css/styles.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div class="wrap">
+    
+<header class="site-head">
+  <div class="bar">
+    <a class="brand" href="/">
+      安安戈
+    </a>
+    <nav class="site-nav">
+      
+        <a href="/" aria-current="page">
+          <span class="zh">首页</span><span class="en">Home</span>
+        </a>
+      
+        <a href="/nickname">
+          <span class="zh">爱称</span><span class="en">Names</span>
+        </a>
+      
+        <a href="https://fe-learning.annwayart.com/" target="_blank" rel="noreferrer">
+          <span class="zh">Learning</span><span class="en">Learning</span>
+        </a>
+      
+        <a href="/about">
+          <span class="zh">关于</span><span class="en">About</span>
+        </a>
+      
+        <a href="https://github.com/wayofway/" target="_blank" rel="noreferrer">
+          <span class="zh">Github</span><span class="en">Github</span>
+        </a>
+      
+        <a href="https://www.instagram.com/wayofway_hku/" target="_blank" rel="noreferrer">
+          <span class="zh">Instagram</span><span class="en">Instagram</span>
+        </a>
+      
+    </nav>
+    <div class="tools">
+      <button type="button" id="lang" aria-pressed="true">
+        <span class="zh">中文</span><span class="en">EN</span>
+      </button>
+      <button type="button" id="theme" aria-pressed="false">
+        <span class="label-paper"><span class="zh">晨宣</span><span class="en">Paper</span></span>
+        <span class="label-night"><span class="zh">夜读</span><span class="en">Night</span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+    <main id="stage">
+      <a class="back" href="/">
+  <span class="zh">返回册页</span><span class="en">Back to the album</span>
+</a>
+<article class="essay">
+  <div class="painting">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/2021-06-22.jpeg" alt="暴雨红色预警">
+  </div>
+  <h1>暴雨红色预警</h1>
+  <div class="meta">
+    
+
+
+    
+<span class="date">
+  <span class="zh">二〇二一 · 六月 · 廿二</span><span class="en">June 22, 2021</span>
+</span>
+
+  </div>
+  <div class="essay-body">
+    <p>昨天刚把石膏拆了，想着再也不用担心下雨天上班了。<br>没有想到今天早上大雨倾盆，深圳全市挂起了红色预警，公司也通知说可以居家办公，老婆正好学校也没有开课，可以跟老婆在家一起远程办公楼，开心了好一会儿！<br>没有想到雨没有多久就停了，十点四十左右，单位来通知说要求陆续返工了，一下子泼了一盆冷水…<br>世事难料呀…</p>
+
+  </div>
+  <nav class="neighbors">
+    <span>
+      
+        <a href="/2021/06/20/%E8%80%81%E5%A9%86%E5%89%83%E5%A4%B4%E9%A6%96%E7%A7%80/">
+          <span class="zh">上一篇</span><span class="en">Previous</span>
+          · 老婆剃头首秀
+        </a>
+      
+    </span>
+    <span>
+      
+        <a href="/2021/06/25/%E8%B0%A2%E8%80%81%E5%B8%88%E7%94%9F%E6%97%A5/">
+          <span class="zh">下一篇</span><span class="en">Next</span>
+          · 谢老师生日
+        </a>
+      
+    </span>
+  </nav>
+</article>
+
+
+    </main>
+  </div>
+  <script src="/libs/eightDiagrams.js"></script>
+  <script src="/libs/album.js"></script>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>
