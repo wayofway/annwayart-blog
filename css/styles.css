@@ -1,9 +1,9 @@
-/* Packaged by fontspider.sh: slidefu.ttf (演示佛系体) and CrimsonText.ttf.
+/* Packaged by fontspider.sh: FZYaoti.ttf (方正姚体) and CrimsonText.ttf.
    Local 姚体 / 仿宋 stay first, so a machine that has them keeps that look.
    Phones fall through to these files. */
 @font-face {
-  font-family: "slidefu";
-  src: url("../fonts/slidefu.ttf") format("truetype");
+  font-family: "yaoti";
+  src: url("../fonts/FZYaoti.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
@@ -17,40 +17,40 @@
 /* Default is yao: 方正姚体 for titles, 仿宋 for text. */
 :root,
 [data-font="yao"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "FZYaoti", "方正姚体", "slidefu", "Crimson Text", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "FZYaoti", "方正姚体", "yaoti", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "yaoti", "Crimson Text", serif;
 }
 [data-font="fang"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "yaoti", "Crimson Text", serif;
   --font-text: var(--font-title);
 }
 [data-font="song"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", "slidefu", "Crimson Text", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", "yaoti", "Crimson Text", serif;
   --font-text: var(--font-title);
 }
 [data-font="kai"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", "Kaiti SC", "slidefu", "Crimson Text", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", "slidefu", "Crimson Text", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", "Kaiti SC", "yaoti", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", "yaoti", "Crimson Text", serif;
 }
 [data-font="kai-fang"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", "slidefu", "Crimson Text", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", "yaoti", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "yaoti", "Crimson Text", serif;
 }
 [data-font="xing"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STXingkai", "华文行楷", "slidefu", "Crimson Text", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STXingkai", "华文行楷", "yaoti", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "yaoti", "Crimson Text", serif;
 }
 [data-font="li"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STLiti", "华文隶书", "LiSu", "隶书", "slidefu", "Crimson Text", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STLiti", "华文隶书", "LiSu", "隶书", "yaoti", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "yaoti", "Crimson Text", serif;
 }
 [data-font="shu"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "FZShuTi", "方正舒体", "slidefu", "Crimson Text", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "FZShuTi", "方正舒体", "yaoti", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "yaoti", "Crimson Text", serif;
 }
 [data-font="zhong"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STZhongsong", "华文中宋", "STSong", "华文宋体", "SimSun", "slidefu", "Crimson Text", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STZhongsong", "华文中宋", "STSong", "华文宋体", "SimSun", "yaoti", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "yaoti", "Crimson Text", serif;
 }
 
 :root {
