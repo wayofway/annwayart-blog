@@ -1,26 +1,43 @@
-<div class="row">
-    <% var count = 1; %>
-    <% page.posts.each(function (post) { %>
-        <% if (page.current === 1 && count <= 6){ %>
-            <%- partial('_partial/portfolio-index', {item: post}) %>
-        <% } %>
-        <% count++; %>
-    <% }) %>
-</div>
-<div class="row">
-    <% var lastMonth; %>
-    <% page.posts.each(function (post) { %>
-        <% var year=post.date.year(); %> 
-        <% var month=post.date.month() + 1; %>
-        <% if (lastMonth != month){ %>
-            <div class="date_title">
-                <p>
-                <span class="jing">#</span>
-                <%= year %>.<%= month %>
-                </p>
-            </div>
-            <% lastMonth=month; %>
-        <% } %>
+<%
+  var list = [];
+  if (page.posts && typeof page.posts.forEach === 'function') {
+    page.posts.forEach(function (post) { list.push(post); });
+  }
+%>
+<% if (list.length) { %>
+  <% var lead = list[0]; %>
+  <a class="leaf" href="<%- url_for(lead.path) %>">
+    <span class="painting">
+      <img src="<%- url_for(lead.cover_image || theme.default_cover_image) %>" alt="">
+    </span>
+    <span class="inscription">
+      <h2 class="vtitle"><%= lead.title || theme.default_post_title || 'Untitled' %></h2>
+      <span class="meta">
+        <%- partial('_partial/inscription', {post: lead, vertical: true}) %>
+        <%- partial('_partial/seals', {post: lead}) %>
+      </span>
+    </span>
+  </a>
+  <% if (list.length > 1) { %>
+    <div class="index">
+      <% list.slice(1).forEach(function (post) { %>
         <%- partial('_partial/list', {item: post}) %>
-    <% }) %>
-</div>
+      <% }) %>
+    </div>
+  <% } %>
+<% } %>
+<% if (page.total > 1) { %>
+  <nav class="pager">
+    <% if (page.prev) { %>
+      <a href="<%- url_for(page.prev_link) %>"><span class="zh">上一开</span><span class="en">Previous</span></a>
+    <% } else { %>
+      <span class="is-disabled"><span class="zh">上一开</span><span class="en">Previous</span></span>
+    <% } %>
+    <span class="date"><%= page.current %> / <%= page.total %> <span class="zh">开</span><span class="en">leaf</span></span>
+    <% if (page.next) { %>
+      <a href="<%- url_for(page.next_link) %>"><span class="zh">下一开</span><span class="en">Next leaf</span></a>
+    <% } else { %>
+      <span class="is-disabled"><span class="zh">下一开</span><span class="en">Next leaf</span></span>
+    <% } %>
+  </nav>
+<% } %>

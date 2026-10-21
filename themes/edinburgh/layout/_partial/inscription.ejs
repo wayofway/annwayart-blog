@@ -1,0 +1,23 @@
+<%
+  var months = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
+  var enMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var digits = '〇一二三四五六七八九';
+  var year = post.date.year();
+  var month = post.date.month() + 1;
+  var day = post.date.date();
+  var zhYear = String(year).split('').map(function (digit) { return digits[digit]; }).join('');
+  var dayNames = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+  var zhDay = '';
+  if (day < 10) zhDay = '初' + dayNames[day];
+  else if (day === 10) zhDay = '初十';
+  else if (day < 20) zhDay = '十' + dayNames[day - 10];
+  else if (day === 20) zhDay = '二十';
+  else if (day < 30) zhDay = '廿' + dayNames[day - 20];
+  else if (day === 30) zhDay = '三十';
+  else zhDay = '三十' + dayNames[day - 30];
+  var zh = zhYear + ' · ' + months[month] + '月 · ' + zhDay;
+  var en = enMonths[month - 1] + ' ' + day + ', ' + year;
+%>
+<span class="date<% if (vertical) { %> vdate<% } %>">
+  <span class="zh"><%= zh %></span><span class="en"><%= en %></span>
+</span>

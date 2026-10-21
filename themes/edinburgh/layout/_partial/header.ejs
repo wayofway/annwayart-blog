@@ -1,27 +1,42 @@
-<nav class="navbar navbar-toggleable-sm navbar-light px-1 my-3 mb-sm-5">
-  <a class="navbar-brand ml-2" href="<%- config.root %>">
-    <%-config.title || "" %>
-  </a>
-  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse"
-    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
-    id="menuBtn">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
-    <ul class="navbar-nav ml-auto my-auto">
-      <% for (var i in config.menu){ %>
-        <li class="nav-item">
-          <a class="nav-link" href="<%- url_for(config.menu[i]) %>"><%= i %></a>
-        </li>
+<%
+  var menuCopy = {
+    Home: { zh: '首页', en: 'Home' },
+    Nickname: { zh: '爱称', en: 'Names' },
+    Learning: { zh: 'Learning', en: 'Learning' },
+    About: { zh: '关于', en: 'About' },
+    Github: { zh: 'Github', en: 'Github' },
+    Instagram: { zh: 'Instagram', en: 'Instagram' }
+  };
+%>
+<header class="site-head">
+  <div class="bar">
+    <a class="brand" href="<%- url_for('/') %>">
+      安安戈
+    </a>
+    <nav class="site-nav">
+      <% for (var name in config.menu) {
+        var href = config.menu[name];
+        var external = /^https?:\/\//.test(href);
+        var copy = menuCopy[name] || { zh: name, en: name };
+        var current = false;
+        if (!external) {
+          if (name === 'Home') current = is_home() || is_post();
+          else current = is_current(href);
+        }
+      %>
+        <a href="<%- url_for(href) %>"<% if (external) { %> target="_blank" rel="noreferrer"<% } %><% if (current) { %> aria-current="page"<% } %>>
+          <span class="zh"><%= copy.zh %></span><span class="en"><%= copy.en %></span>
+        </a>
       <% } %>
-    </ul>
-    <hr class="hidden-md-up" />
+    </nav>
+    <div class="tools">
+      <button type="button" id="lang" aria-pressed="true">
+        <span class="zh">中文</span><span class="en">EN</span>
+      </button>
+      <button type="button" id="theme" aria-pressed="false">
+        <span class="label-paper"><span class="zh">晨宣</span><span class="en">Paper</span></span>
+        <span class="label-night"><span class="zh">夜读</span><span class="en">Night</span></span>
+      </button>
+    </div>
   </div>
-</nav>
-<script>
-  var menuBtn = document.querySelector('#menuBtn');
-  var menuNode = document.querySelector('#navbarCollapse');
-  menuBtn.onclick = function () {
-    menuNode.classList.toggle('collapse');
-  }
-</script>
+</header>

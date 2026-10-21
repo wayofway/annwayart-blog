@@ -1,11 +1,10 @@
-<% if (item.cover_image){ %>
-  <div class="col-12 mb-4" style="position: relative;">
-    <img class="img-fluid project-img opacity-img" src="<%- config.root %><%- item.cover_image %>" alt="<%- item.title || "Untitled" %>">
-    <div class="page-title" style="position: absolute;">
-      <%- item.title || "无题" %>
+<article class="page-sheet">
+  <% if (item.cover_image) { %>
+    <div class="painting page-painting">
+      <img src="<%- url_for(item.cover_image) %>" alt="<%= item.title || '' %>">
     </div>
+  <% } %>
+  <div class="page-body">
+    <%- item.content %>
   </div>
-<% } %>
-<div class="col-12 pt-lg-3 mb-4 portfolio-content">
-  <%- item.content %>
-</div>
+</article>

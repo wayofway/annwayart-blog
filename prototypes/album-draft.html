@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="paper" data-font="yao">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>安安戈 · 册页</title>
+  <style>
+    :root {
+      --paper: #f3eee4;
+      --sheet: #faf6ee;
+      --ink: #2a2622;
+      --soft: #6f675c;
+      --faint: #9a9084;
+      --line: #e4d9c8;
+      --seal: #9d3d34;
+      --sky: #ebe4d6;
+      --mist: #d9d0c2;
+      --wash: #cfc4b2;
+      --hill: #b7aa96;
+    }
+    html[data-theme="night"] {
+      --paper: #141311;
+      --sheet: #1c1b18;
+      --ink: #ebe4d6;
+      --soft: #b3a898;
+      --faint: #8a8074;
+      --line: #3a342c;
+      --seal: #d07a72;
+      --sky: #221f1b;
+      --mist: #3a342c;
+      --wash: #4a433a;
+      --hill: #6a6156;
+    }
+    :root,
+    [data-font="yao"] {
+      --font-title: "Iowan Old Style", "Palatino Linotype", "FZYaoti", "方正姚体", serif;
+      --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+    }
+    [data-font="song"] {
+      --font-title: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", serif;
+      --font-text: var(--font-title);
+    }
+    [data-font="kai"] {
+      --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", "Kaiti SC", serif;
+      --font-text: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", serif;
+    }
+    [data-font="fang"] {
+      --font-title: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+      --font-text: var(--font-title);
+    }
+    [data-font="zhong"] {
+      --font-title: "Iowan Old Style", "Palatino Linotype", "STZhongsong", "华文中宋", "STSong", "华文宋体", "SimSun", serif;
+      --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+    }
+    [data-font="kai-fang"] {
+      --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", serif;
+      --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+    }
+    [data-font="xing"] {
+      --font-title: "Iowan Old Style", "Palatino Linotype", "STXingkai", "华文行楷", serif;
+      --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+    }
+    [data-font="li"] {
+      --font-title: "Iowan Old Style", "Palatino Linotype", "STLiti", "华文隶书", "LiSu", "隶书", serif;
+      --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+    }
+    [data-font="shu"] {
+      --font-title: "Iowan Old Style", "Palatino Linotype", "FZShuTi", "方正舒体", serif;
+      --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-text);
+      font-size: 18px;
+      line-height: 1.75;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+    a { color: inherit; }
+    button, a { font-family: inherit; }
+    button {
+      background: none;
+      border: 0;
+      color: inherit;
+      cursor: pointer;
+      padding: 0;
+    }
+    .wrap { width: min(920px, calc(100% - 48px)); margin: 0 auto; }
+    header {
+      padding: 28px 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand, .vtitle, .essay h1, .name, .plaque, .about-line, .sample h3 {
+      font-family: var(--font-title);
+    }
+    .brand {
+      font-size: 22px;
+      letter-spacing: 0.28em;
+      text-decoration: none;
+    }
+    nav { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    nav button, nav a {
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      color: var(--soft);
+      text-decoration: none;
+    }
+    nav button[aria-current="page"], nav a:hover, nav button:hover { color: var(--ink); }
+    .tools { display: flex; gap: 14px; align-items: center; font-size: 13px; letter-spacing: 0.14em; color: var(--soft); }
+    .tools button[aria-pressed="true"] { color: var(--seal); }
+    #stage {
+      padding: 36px 0 72px;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    #stage.out { opacity: 0; transform: translateY(10px); }
+    .leaf {
+      display: grid;
+      grid-template-columns: 1.5fr 148px;
+      gap: 28px;
+      background: var(--sheet);
+      border: 1px solid var(--line);
+      padding: 18px;
+      text-align: left;
+      width: 100%;
+      color: inherit;
+    }
+    .leaf:hover .vtitle { color: var(--seal); }
+    .painting { width: 100%; height: 100%; min-height: 280px; display: block; }
+    .painting svg { width: 100%; height: 100%; display: block; }
+    .inscription {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      min-height: 280px;
+      padding: 8px 4px;
+    }
+    .vtitle {
+      writing-mode: vertical-rl;
+      font-size: 32px;
+      letter-spacing: 0.42em;
+      line-height: 1;
+      margin: 0;
+      transition: color 0.4s ease;
+    }
+    .meta { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+    .vdate {
+      writing-mode: vertical-rl;
+      letter-spacing: 0.22em;
+    }
+    .date { font-size: 13px; letter-spacing: 0.08em; color: var(--soft); }
+    .seal {
+      width: 26px;
+      height: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--seal);
+      color: var(--seal);
+      font-size: 13px;
+      letter-spacing: 0;
+      flex: none;
+    }
+    .index { margin-top: 28px; }
+    .row {
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      width: 100%;
+      text-align: left;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: inherit;
+    }
+    .row .thumb { height: 64px; overflow: hidden; }
+    .row .thumb .painting { min-height: 0; height: 64px; }
+    .row .name { font-size: 18px; letter-spacing: 0.08em; }
+    .row:hover .name { color: var(--seal); }
+    .pager {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 28px;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+    }
+    .pager button { color: var(--soft); }
+    .pager button:hover { color: var(--seal); }
+    .pager button:disabled { color: var(--faint); cursor: default; }
+    .essay { max-width: 640px; }
+    .back { color: var(--soft); letter-spacing: 0.16em; font-size: 14px; }
+    .back:hover { color: var(--seal); }
+    .essay .painting { min-height: 320px; margin-top: 22px; border: 1px solid var(--line); }
+    .essay .meta { flex-direction: row; align-items: center; }
+    .essay h1 {
+      font-weight: 400;
+      font-size: 36px;
+      letter-spacing: 0.18em;
+      margin: 22px 0 8px;
+    }
+    .essay p { margin: 0 0 0.9em; }
+    .neighbors {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: 15px;
+      letter-spacing: 0.08em;
+    }
+    .neighbors button { color: var(--soft); text-align: left; }
+    .neighbors button:hover { color: var(--seal); }
+    .plaque {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min(560px, 100%);
+      background: var(--sheet);
+      border: 1px solid var(--line);
+      padding: 14px 18px;
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      text-align: left;
+    }
+    .plaque span { font-size: 14px; letter-spacing: 0.12em; color: var(--faint); }
+    .plaque.open { border-color: var(--seal); }
+    .plaque.open span { color: var(--seal); }
+    .play {
+      margin: 8px 0 22px;
+      letter-spacing: 0.2em;
+      color: var(--seal);
+      font-size: 15px;
+    }
+    .slip {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 28px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: var(--sheet);
+      text-decoration: none;
+    }
+    .slip em { font-style: normal; color: var(--seal); letter-spacing: 0.12em; }
+    .about-line { font-size: 28px; letter-spacing: 0.18em; margin-top: 12px; }
+    .samples { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .sample { border: 1px solid var(--line); background: var(--sheet); padding: 14px 14px 16px; }
+    .sample h3 { margin: 0 0 4px; font-size: 18px; font-weight: 400; letter-spacing: 0.22em; }
+    .sample .note { margin: 0 0 12px; color: var(--soft); font-size: 13px; letter-spacing: 0.04em; }
+    .sample .leaf { grid-template-columns: 1.15fr 96px; padding: 10px; gap: 12px; }
+    .sample .painting, .sample .inscription { min-height: 168px; }
+    .sample .vtitle { font-size: 22px; letter-spacing: 0.28em; }
+    .sample .row { padding: 10px 0 0; border-bottom: 0; }
+    .use { margin-top: 12px; color: var(--seal); letter-spacing: 0.16em; font-size: 13px; }
+    body.en .vtitle, body.en .vdate { writing-mode: horizontal-tb; letter-spacing: 0.04em; }
+    body.en .vtitle { font-size: 28px; }
+    body.en .leaf { grid-template-columns: 1.45fr 230px; }
+    body.en .inscription { align-items: flex-start; }
+    body.en .meta { flex-direction: row; align-items: center; }
+    @media (max-width: 720px) {
+      .wrap { width: min(920px, calc(100% - 32px)); }
+      .bar { flex-wrap: wrap; }
+      .leaf { grid-template-columns: 1fr; }
+      .inscription { min-height: 0; flex-direction: row; align-items: flex-end; justify-content: space-between; }
+      .vtitle, .vdate { writing-mode: horizontal-tb; letter-spacing: 0.12em; }
+      .vtitle { font-size: 28px; }
+      .meta { flex-direction: row; align-items: center; }
+      .painting, .leaf .painting { min-height: 200px; }
+      .essay h1 { font-size: 28px; }
+      .samples { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stage, body, .vtitle { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="bar">
+        <a class="brand" href="#/" id="brand">安安戈</a>
+        <nav id="nav"></nav>
+        <div class="tools">
+          <button type="button" id="fonts" data-go="fonts">对照</button>
+          <button type="button" id="lang" aria-pressed="true">中文</button>
+          <button type="button" id="theme" aria-pressed="false">晨宣</button>
+        </div>
+      </div>
+    </header>
+    <main id="stage"></main>
+  </div>
+  <script>
+    var digits = "〇一二三四五六七八九";
+    var months = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"];
+    var posts = [
+      { id: "huiniangjia", title: "回娘家", date: "2022-07-21", tags: ["life"], scene: "road", body: ["又到了暑假，老婆准备回岳阳老家啦。", "最近深圳疫情突然恶化，白石洲失守，希望一切顺利，不会影响到回岳阳后的防疫政策"] },
+      { id: "yantian", title: "盐田凤凰八日", date: "2022-07-01", tags: ["life"], scene: "water", body: ["6.23-7.01，", "是计划赶不上变化的八天，", "是晴雨变化的八天，", "是极具挑战的八天，", "也是终生难忘的八天。", "图为恩上水库"] },
+      { id: "screen", title: "碎屏", date: "2021-07-09", tags: ["life"], scene: "crack", body: ["今天老婆本学期最后一天班，也是周末。", "本来还挺开心的，不想中午回家地铁安检时，不小心手机摔落，碎了一地...", "不幸中的万幸。碎的是钢化膜，家里也还有备用的膜，愿“碎碎”平安吧～"] },
+      { id: "raise", title: "涨薪", date: "2021-07-05", tags: ["life", "work"], scene: "lamp", body: ["一转眼 2021 已经过去一半，这也是进入下半年的第一个 post；", "今天中午收到邮件，涨薪 1000，还是有些小激动的；", "晚上回到家看到老婆把电动牙刷的刷头也替换了新的；", "自腿受伤后，第一次给老婆全身按摩，一切似乎在走向正轨。", "希望一切都是新的开始吧～"] },
+      { id: "surprise", title: "险些错过的惊喜", date: "2021-06-30", tags: ["life"], scene: "letter", body: ["近日工作不太顺利，连续几天加班到比较晚，而老婆又感冒了，晚上回去的时候，老婆已经睡了，给我留的条，我早上才发现。老婆寥寥几句却能让我心里得到不少慰藉。"] },
+      { id: "noodles", title: "辣椒炒蛋拌面", date: "2021-06-26", tags: ["life"], scene: "bowl", body: ["周六晚上老婆下厨，照着小红书的菜谱，做了个辣椒炒蛋拌面，味道不错！饭扫光！"] },
+      { id: "teacher", title: "谢老师生日", date: "2021-06-25", tags: ["work"], scene: "gift", body: ["今天是老婆师傅谢老师的生日，老婆精心准备了一份礼物送给她，心意满满～", "谢老师自老婆入职以来，一直对老婆关照有加，没有领导的架子，更像是可亲可敬的长辈一样，我也很感激她对老婆的照顾。"] },
+      { id: "breath", title: "呼吸", date: "2021-06-04", tags: ["life"], scene: "roof", body: ["多日未出门，气闷的慌，拄拐去楼顶吹吹风。老婆相伴，想想已有很久没有陪老婆逛街了。"] }
+    ];
+    var names = [
+      { name: "木目心", rank: 101 }, { name: "立小一", rank: 100 }, { name: "小青", rank: 100 },
+      { name: "疼疼", rank: 100 }, { name: "涂尔巴", rank: 100 }, { name: "冲儿", rank: 100 },
+      { name: "胡子妹妹", rank: 100 }, { name: "可达鸭", rank: 100 }, { name: "鼓鼓", rank: 100 },
+      { name: "点头小子", rank: 100 }, { name: "大阿哥", rank: 90 }, { name: "死鸡仔", rank: 90 },
+      { name: "安艺物语", rank: 90 }, { name: "口咸", rank: 50 }, { name: "巴nia个", rank: 40 }
+    ];
+    var copy = {
+      zh: { brand: "安安戈", home: "首页", names: "爱称", about: "关于", paper: "晨宣", night: "夜读", lang: "中文", next: "下一开", prev: "上一开", back: "返回册页", earlier: "上一篇", later: "下一篇", play: "播放卡农", pause: "暂停", rank: "分", bio: "一名简单的程序员", hex: "每日一卦", page: "开", fonts: "对照", use: "用这套", used: "当前" },
+      en: { brand: "安安戈", home: "Home", names: "Names", about: "About", paper: "Paper", night: "Night", lang: "EN", next: "Next leaf", prev: "Previous", back: "Back to the album", earlier: "Previous", later: "Next", play: "Play Canon", pause: "Pause", rank: "pt", bio: "一名简单的程序员", hex: "Daily hexagram", page: "leaf", fonts: "Type", use: "Use this", used: "Current" }
+    };
+    var fonts = [
+      { id: "fang", zh: "仿宋", en: "Fangsong", noteZh: "题和正文都是仿宋，笔画更疏。", noteEn: "Fangsong for both, with more air in the strokes." },
+      { id: "kai-fang", zh: "楷题", en: "Kai on Fang", noteZh: "题名用楷书，正文用仿宋。", noteEn: "Regular script for the title, Fangsong for the essay." },
+      { id: "yao", zh: "姚题", en: "Yao", noteZh: "题名用方正姚体，正文用仿宋。", noteEn: "Yao type for the title, Fangsong for the essay." },
+      { id: "xing", zh: "行题", en: "Running", noteZh: "题名用行楷，正文用仿宋。", noteEn: "Running script for the title, Fangsong for the essay." },
+      { id: "li", zh: "隶题", en: "Clerical", noteZh: "题名用隶书，正文用仿宋。", noteEn: "Clerical script for the title, Fangsong for the essay." },
+      { id: "shu", zh: "舒题", en: "Shu", noteZh: "题名用方正舒体，正文用仿宋。", noteEn: "Shu type for the title, Fangsong for the essay." },
+      { id: "zhong", zh: "中宋", en: "Zhongsong", noteZh: "题名用中宋，正文用仿宋。", noteEn: "Heavier Song for the title, Fangsong for the essay." },
+      { id: "song", zh: "松烟宋", en: "Song", noteZh: "题和正文都是宋体，接近刻本。", noteEn: "Song type for the title and the essay." },
+      { id: "kai", zh: "题楷", en: "Kai title", noteZh: "题名用楷书，正文仍是宋体。", noteEn: "Regular script for the title, Song for the essay." }
+    ];
+    var state = { lang: "zh", theme: "paper", font: "yao", page: 0, view: "home", post: posts[0].id, openName: "", playing: false };
+    var perPage = 4;
+
+    function zhDay(day) {
+      var n = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
+      if (day < 10) return "初" + n[day];
+      if (day === 10) return "初十";
+      if (day < 20) return "十" + n[day - 10];
+      if (day === 20) return "二十";
+      if (day < 30) return "廿" + n[day - 20];
+      if (day === 30) return "三十";
+      return "三十" + n[day - 30];
+    }
+    function inscription(post) {
+      if (state.lang === "en") {
+        var monthsEn = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var parts = post.date.split("-");
+        return monthsEn[Number(parts[1]) - 1] + " " + Number(parts[2]) + ", " + parts[0];
+      }
+      var parts = post.date.split("-");
+      var year = parts[0].split("").map(function (d) { return digits[d]; }).join("");
+      return year + " · " + months[Number(parts[1])] + "月 · " + zhDay(Number(parts[2]));
+    }
+    function sealChars(tags) {
+      var chars = [];
+      if (tags.indexOf("life") >= 0) chars.push("生");
+      if (tags.indexOf("work") >= 0) chars.push("事");
+      if (!chars.length) chars.push("记");
+      return chars;
+    }
+    function seals(tags) {
+      return sealChars(tags).map(function (char) { return '<i class="seal">' + char + "</i>"; }).join("");
+    }
+    function painting(scene) {
+      var sky = "var(--sky)";
+      var mist = "var(--mist)";
+      var wash = "var(--wash)";
+      var hill = "var(--hill)";
+      var ink = "var(--ink)";
+      var scenes = {
+        road: '<path d="M0 300 C180 250 260 340 420 286 C560 240 680 320 800 270 L800 480 L0 480 Z" fill="' + mist + '"/><path d="M0 390 C200 340 340 420 520 360 C640 330 720 390 800 350 L800 480 L0 480 Z" fill="' + wash + '"/><path d="M120 300 C150 250 170 260 190 220" fill="none" stroke="' + ink + '" stroke-width="1" opacity="0.35"/>',
+        water: '<path d="M0 250 H800" stroke="' + mist + '" stroke-width="1"/><path d="M0 290 H800" stroke="' + wash + '" stroke-width="1"/><path d="M0 330 H800" stroke="' + hill + '" stroke-width="1"/><path d="M0 380 C160 360 240 400 400 370 C560 340 680 400 800 360 L800 480 L0 480 Z" fill="' + mist + '"/>',
+        crack: '<rect x="250" y="70" width="300" height="220" fill="none" stroke="' + mist + '" stroke-width="1"/><path d="M430 70 L400 150 L450 190 L410 290" fill="none" stroke="' + ink + '" stroke-width="1" opacity="0.4"/>',
+        lamp: '<circle cx="560" cy="150" r="36" fill="' + mist + '"/><path d="M180 360 H640" stroke="' + wash + '" stroke-width="1"/><path d="M560 186 V250" stroke="' + hill + '" stroke-width="1"/>',
+        letter: '<rect x="300" y="120" width="200" height="140" fill="' + mist + '"/><path d="M320 160 H480 M320 190 H450 M320 220 H420" stroke="' + hill + '" stroke-width="1"/>',
+        bowl: '<path d="M250 250 Q400 360 550 250" fill="none" stroke="' + hill + '" stroke-width="1.5"/><path d="M280 250 Q400 300 520 250" fill="' + mist + '"/>',
+        gift: '<rect x="330" y="160" width="150" height="110" fill="none" stroke="' + hill + '" stroke-width="1"/><path d="M330 200 H480 M405 160 V270" stroke="' + mist + '" stroke-width="1"/>',
+        roof: '<path d="M0 300 H800" stroke="' + hill + '" stroke-width="1"/><path d="M80 300 V230 H220 V300" fill="none" stroke="' + mist + '" stroke-width="1"/><circle cx="640" cy="120" r="22" fill="none" stroke="' + wash + '" stroke-width="1"/>'
+      };
+      return '<div class="painting"><svg viewBox="0 0 800 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="800" height="480" fill="' + sky + '"/>' + scenes[scene] + "</svg></div>";
+    }
+    function t() { return copy[state.lang]; }
+    function findPost(id) {
+      return posts.filter(function (post) { return post.id === id; })[0] || posts[0];
+    }
+    function hexagram() {
+      var diagram = { 1: "乾", 2: "兑", 3: "离", 4: "震", 5: "巽", 6: "坎", 7: "艮", 0: "坤" };
+      var change = { 1: "初", 2: "二", 3: "三", 4: "四", 5: "五", 0: "上" };
+      var day = String(new Date().getDate());
+      var cached = localStorage.getItem("album-draft-diagram");
+      var savedDay = localStorage.getItem("album-draft-day");
+      var bot, up, line;
+      if (cached && savedDay === day) {
+        var parsed = JSON.parse(cached);
+        bot = parsed.bot; up = parsed.up; line = parsed.line;
+      } else {
+        bot = Math.floor(Math.random() * 8);
+        up = Math.floor(Math.random() * 8);
+        line = Math.floor(Math.random() * 6);
+        localStorage.setItem("album-draft-diagram", JSON.stringify({ bot: bot, up: up, line: line }));
+        localStorage.setItem("album-draft-day", day);
+      }
+      var words = diagram[up] + "上" + diagram[bot] + "下 变爻在" + change[line];
+      var href = "https://www.baidu.com/s?ie=utf-8&wd=" + encodeURIComponent(words + " 易安居吉祥网");
+      return { words: words, href: href };
+    }
+    function navHtml() {
+      var text = t();
+      var items = [
+        { id: "home", label: text.home },
+        { id: "names", label: text.names },
+        { id: "about", label: text.about }
+      ];
+      var html = items.map(function (item) {
+        var on = state.view === item.id || (item.id === "home" && state.view === "post");
+        return '<button type="button" data-go="' + item.id + '"' + (on ? ' aria-current="page"' : "") + ">" + item.label + "</button>";
+      }).join("");
+      html += '<a href="https://fe-learning.annwayart.com/" target="_blank" rel="noreferrer">Learning</a>';
+      html += '<a href="https://github.com/wayofway/" target="_blank" rel="noreferrer">Github</a>';
+      html += '<a href="https://www.instagram.com/wayofway_hku/" target="_blank" rel="noreferrer">Instagram</a>';
+      return html;
+    }
+    function homeHtml() {
+      var text = t();
+      var start = state.page * perPage;
+      var slice = posts.slice(start, start + perPage);
+      var lead = slice[0];
+      var rest = slice.slice(1);
+      var rows = rest.map(function (post) {
+        return '<button class="row" type="button" data-post="' + post.id + '"><span class="thumb">' + painting(post.scene) + '</span><span class="name">' + post.title + '</span><span class="date">' + inscription(post) + "</span></button>";
+      }).join("");
+      var pages = Math.ceil(posts.length / perPage);
+      var hero = '<button class="leaf" type="button" data-post="' + lead.id + '">' + painting(lead.scene) + '<div class="inscription"><h2 class="vtitle">' + lead.title + '</h2><div class="meta"><span class="date vdate">' + inscription(lead) + "</span>" + seals(lead.tags) + "</div></div></button>";
+      return hero + '<div class="index">' + rows + '</div><div class="pager"><button type="button" data-page="-1"' + (state.page === 0 ? " disabled" : "") + ">" + text.prev + '</button><span class="date">' + (state.page + 1) + " / " + pages + " " + text.page + '</span><button type="button" data-page="1"' + (state.page >= pages - 1 ? " disabled" : "") + ">" + text.next + "</button></div>";
+    }
+    function postHtml() {
+      var text = t();
+      var post = findPost(state.post);
+      var index = posts.indexOf(post);
+      var earlier = posts[index + 1];
+      var later = posts[index - 1];
+      var body = post.body.map(function (paragraph) { return "<p>" + paragraph + "</p>"; }).join("");
+      var neighbors = '<div class="neighbors"><span>' + (earlier ? '<button type="button" data-post="' + earlier.id + '">' + text.earlier + " · " + earlier.title + "</button>" : "") + "</span><span>" + (later ? '<button type="button" data-post="' + later.id + '">' + text.later + " · " + later.title + "</button>" : "") + "</span></div>";
+      return '<button class="back" type="button" data-go="home">' + text.back + "</button>" + '<article class="essay">' + painting(post.scene) + "<h1>" + post.title + "</h1>" + '<div class="meta">' + seals(post.tags) + '<span class="date">' + inscription(post) + "</span></div>" + body + neighbors + "</article>";
+    }
+    function namesHtml() {
+      var text = t();
+      var list = names.map(function (item) {
+        var open = state.openName === item.name;
+        return '<button class="plaque' + (open ? " open" : "") + '" type="button" data-name="' + item.name + '">' + item.name + "<span>" + (open ? item.rank + " " + text.rank : text.rank) + "</span></button>";
+      }).join("");
+      return '<button class="play" type="button" id="play">' + (state.playing ? text.pause : text.play) + "</button>" + list;
+    }
+    function aboutHtml() {
+      var text = t();
+      var gua = hexagram();
+      return '<p class="about-line">' + text.bio + '</p><a class="slip" href="' + gua.href + '" target="_blank" rel="noreferrer"><i class="seal">卦</i><span>' + text.hex + '</span><em>' + gua.words + "</em></a>";
+    }
+    function fontsHtml() {
+      var text = t();
+      var lead = posts[0];
+      var row = posts[1];
+      return '<div class="samples">' + fonts.map(function (font) {
+        var name = state.lang === "en" ? font.en : font.zh;
+        var note = state.lang === "en" ? font.noteEn : font.noteZh;
+        var leaf = '<div class="leaf">' + painting(lead.scene) + '<div class="inscription"><h2 class="vtitle">' + lead.title + '</h2><div class="meta"><span class="date vdate">' + inscription(lead) + "</span>" + seals(lead.tags) + "</div></div></div>";
+        var line = '<div class="row"><span class="thumb">' + painting(row.scene) + '</span><span class="name">' + row.title + '</span><span class="date">' + inscription(row) + "</span></div>";
+        var pick = '<button type="button" class="use" data-pick="' + font.id + '">' + (state.font === font.id ? text.used : text.use) + "</button>";
+        return '<section class="sample" data-font="' + font.id + '"><h3>' + name + '</h3><p class="note">' + note + "</p>" + leaf + line + pick + "</section>";
+      }).join("") + "</div>";
+    }
+    function render() {
+      var text = t();
+      document.documentElement.lang = state.lang === "zh" ? "zh-CN" : "en";
+      document.documentElement.setAttribute("data-theme", state.theme);
+      document.documentElement.setAttribute("data-font", state.font);
+      document.body.classList.toggle("en", state.lang === "en");
+      document.getElementById("brand").textContent = text.brand;
+      document.getElementById("nav").innerHTML = navHtml();
+      document.getElementById("lang").textContent = text.lang;
+      document.getElementById("lang").setAttribute("aria-pressed", state.lang === "zh" ? "true" : "false");
+      document.getElementById("theme").textContent = state.theme === "night" ? text.night : text.paper;
+      document.getElementById("theme").setAttribute("aria-pressed", state.theme === "night" ? "true" : "false");
+      document.getElementById("fonts").textContent = text.fonts;
+      document.getElementById("fonts").setAttribute("aria-pressed", state.view === "fonts" ? "true" : "false");
+      var html = state.view === "post" ? postHtml() : state.view === "names" ? namesHtml() : state.view === "about" ? aboutHtml() : state.view === "fonts" ? fontsHtml() : homeHtml();
+      document.getElementById("stage").innerHTML = html;
+      var viewName = state.view === "post" ? findPost(state.post).title : state.view === "names" ? text.names : state.view === "about" ? text.about : state.view === "fonts" ? text.fonts : text.home;
+      document.title = text.brand + " · " + viewName;
+    }
+    function turn(next) {
+      var stage = document.getElementById("stage");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) { next(); render(); return; }
+      stage.classList.add("out");
+      window.setTimeout(function () {
+        next();
+        render();
+        stage.classList.remove("out");
+      }, 220);
+    }
+    document.body.addEventListener("click", function (event) {
+      var pick = event.target.closest("[data-pick]");
+      if (pick) {
+        state.font = pick.getAttribute("data-pick");
+        localStorage.setItem("album-draft-font", state.font);
+        turn(function () { state.view = "home"; state.page = 0; });
+        return;
+      }
+      var pageBtn = event.target.closest("[data-page]");
+      if (pageBtn && !pageBtn.disabled) {
+        turn(function () { state.page += Number(pageBtn.getAttribute("data-page")); state.view = "home"; });
+        return;
+      }
+      var postBtn = event.target.closest("[data-post]");
+      if (postBtn) {
+        turn(function () { state.post = postBtn.getAttribute("data-post"); state.view = "post"; });
+        return;
+      }
+      var go = event.target.closest("[data-go]");
+      if (go) {
+        turn(function () { state.view = go.getAttribute("data-go"); });
+        return;
+      }
+      var nameBtn = event.target.closest("[data-name]");
+      if (nameBtn) {
+        var name = nameBtn.getAttribute("data-name");
+        state.openName = state.openName === name ? "" : name;
+        render();
+        return;
+      }
+      if (event.target.id === "play") {
+        state.playing = !state.playing;
+        render();
+      }
+    });
+    document.getElementById("brand").addEventListener("click", function (event) {
+      event.preventDefault();
+      turn(function () { state.view = "home"; state.page = 0; });
+    });
+    document.getElementById("lang").addEventListener("click", function () {
+      state.lang = state.lang === "zh" ? "en" : "zh";
+      localStorage.setItem("album-draft-lang", state.lang);
+      render();
+    });
+    document.getElementById("theme").addEventListener("click", function () {
+      state.theme = state.theme === "paper" ? "night" : "paper";
+      localStorage.setItem("album-draft-theme", state.theme);
+      render();
+    });
+    var savedTheme = localStorage.getItem("album-draft-theme");
+    var savedLang = localStorage.getItem("album-draft-lang");
+    var savedFont = localStorage.getItem("album-draft-font");
+    if (savedTheme === "paper" || savedTheme === "night") state.theme = savedTheme;
+    else if (window.matchMedia("(prefers-color-scheme: dark)").matches) state.theme = "night";
+    if (savedLang === "zh" || savedLang === "en") state.lang = savedLang;
+    if (fonts.some(function (font) { return font.id === savedFont; })) state.font = savedFont;
+    render();
+  </script>
+</body>
+</html>

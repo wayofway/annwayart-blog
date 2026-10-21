@@ -1,0 +1,20 @@
+<%
+  var life = false;
+  var work = false;
+  function mark(name) {
+    String(name || '').split(',').forEach(function (part) {
+      var token = part.trim();
+      if (token === 'life') life = true;
+      if (token === 'work') work = true;
+    });
+  }
+  if (post.tags && typeof post.tags.forEach === 'function') {
+    post.tags.forEach(function (tag) { mark(tag.name); });
+  }
+%>
+<% if (life || work) { %>
+<span class="seals">
+  <% if (life) { %><i class="seal" aria-hidden="true">生</i><% } %>
+  <% if (work) { %><i class="seal" aria-hidden="true">事</i><% } %>
+</span>
+<% } %>

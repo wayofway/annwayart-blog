@@ -1,10 +1,9 @@
-<div class="listrow">
-  <a class="listrow-link" href="<%- config.root %><%- item.path %>">
-    <span class="listrow-title">
-      <%- item.title || theme.default_post_title || "Untitled" %>
+<a class="row" href="<%- url_for(item.path) %>">
+  <span class="thumb">
+    <span class="painting">
+      <img src="<%- url_for(item.cover_image || theme.default_cover_image) %>" alt="">
     </span>
-    <span class="listrow-date">
-      <%- date(item.date || '' ) %>
-    </span>
-  </a>
-</div>
+  </span>
+  <span class="name"><%= item.title || theme.default_post_title || 'Untitled' %></span>
+  <%- partial('_partial/inscription', {post: item, vertical: false}) %>
+</a>

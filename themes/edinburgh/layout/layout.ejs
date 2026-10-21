@@ -1,26 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<!-- Head tag -->
+<html lang="zh-CN">
 <%- partial('_partial/head') %>
-
-  <body>
-    <div class="container-fluid navbar-container m-sm-5">
-      <!-- Header -->
-      <%- partial('_partial/header') %>
-
-        <div class="block">
-          <%- body %>
-        </div>
-        <% if (page.total> 1) { %>
-          <nav class="page-nav">
-            <%- paginator({prev_text: '<' , next_text: '>' }) %>
-          </nav>
-          <% } %>
-    </div>
-    <%- partial('_partial/dynamic-words') %>
-  </body>
-
-  <script src="<%- config.root %>libs/bgColor.js"></script>
-  <script src="<%- config.root %>libs/eightDiagrams.js"></script>
-
+<body>
+  <div class="wrap">
+    <%- partial('_partial/header') %>
+    <main id="stage">
+      <%- body %>
+    </main>
+  </div>
+  <script src="<%- url_for('/libs/eightDiagrams.js') %>"></script>
+  <script src="<%- url_for('/libs/album.js') %>"></script>
+</body>
 </html>
