@@ -9,11 +9,8 @@
   };
 %>
 <header class="site-head">
-  <div class="bar">
-    <a class="brand" href="<%- url_for('/') %>">
-      安安戈
-    </a>
-    <nav class="site-nav">
+  <a class="brand" href="<%- url_for('/') %>">安安戈</a>
+  <nav class="site-nav">
       <% for (var name in config.menu) {
         var href = config.menu[name];
         var external = /^https?:\/\//.test(href);
@@ -28,8 +25,8 @@
           <span class="zh"><%= copy.zh %></span><span class="en"><%= copy.en %></span>
         </a>
       <% } %>
-    </nav>
-    <div class="tools">
+  </nav>
+  <div class="tools">
       <button type="button" id="lang" aria-pressed="true">
         <span class="zh">中文</span><span class="en">EN</span>
       </button>
@@ -37,6 +34,5 @@
         <span class="label-paper"><span class="zh">晨宣</span><span class="en">Paper</span></span>
         <span class="label-night"><span class="zh">夜读</span><span class="en">Night</span></span>
       </button>
-    </div>
   </div>
 </header>
