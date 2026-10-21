@@ -1,40 +1,56 @@
+/* Packaged by fontspider.sh: slidefu.ttf (演示佛系体) and CrimsonText.ttf.
+   Local 姚体 / 仿宋 stay first, so a machine that has them keeps that look.
+   Phones fall through to these files. */
+@font-face {
+  font-family: "slidefu";
+  src: url("../fonts/slidefu.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/CrimsonText.ttf") format("truetype");
+  font-display: swap;
+}
+
 /* Default is yao: 方正姚体 for titles, 仿宋 for text. */
 :root,
 [data-font="yao"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "FZYaoti", "方正姚体", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "FZYaoti", "方正姚体", "slidefu", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
 }
 [data-font="fang"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
   --font-text: var(--font-title);
 }
 [data-font="song"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", "slidefu", "Crimson Text", serif;
   --font-text: var(--font-title);
 }
 [data-font="kai"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", "Kaiti SC", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", "Kaiti SC", "slidefu", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STSong", "华文宋体", "SimSun", "宋体", "Songti SC", "slidefu", "Crimson Text", serif;
 }
 [data-font="kai-fang"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STKaiti", "华文楷体", "KaiTi", "楷体", "slidefu", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
 }
 [data-font="xing"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STXingkai", "华文行楷", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STXingkai", "华文行楷", "slidefu", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
 }
 [data-font="li"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STLiti", "华文隶书", "LiSu", "隶书", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STLiti", "华文隶书", "LiSu", "隶书", "slidefu", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
 }
 [data-font="shu"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "FZShuTi", "方正舒体", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "FZShuTi", "方正舒体", "slidefu", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
 }
 [data-font="zhong"] {
-  --font-title: "Iowan Old Style", "Palatino Linotype", "STZhongsong", "华文中宋", "STSong", "华文宋体", "SimSun", serif;
-  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", serif;
+  --font-title: "Iowan Old Style", "Palatino Linotype", "STZhongsong", "华文中宋", "STSong", "华文宋体", "SimSun", "slidefu", "Crimson Text", serif;
+  --font-text: "Iowan Old Style", "Palatino Linotype", "STFangsong", "华文仿宋", "FangSong", "仿宋", "slidefu", "Crimson Text", serif;
 }
 
 :root {
@@ -85,14 +101,11 @@ img { max-width: 100%; }
 
 .wrap { width: min(920px, calc(100% - 48px)); margin: 0 auto; }
 .site-head {
-  padding: 28px 0 18px;
-  border-bottom: 1px solid var(--line);
-}
-.bar {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
+  gap: 28px;
+  padding: 28px 0 18px;
+  border-bottom: 1px solid var(--line);
 }
 .brand, .vtitle, .essay h1, .name, .plaque, .page-body h1, .about-line {
   font-family: var(--font-title);
@@ -102,7 +115,12 @@ img { max-width: 100%; }
   letter-spacing: 0.28em;
   flex: none;
 }
-.site-nav { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-left: auto;
+}
 .site-nav a {
   font-size: 15px;
   letter-spacing: 0.12em;
@@ -349,7 +367,41 @@ button:focus-visible { outline: 1px solid var(--seal); outline-offset: 3px; }
 
 @media (max-width: 720px) {
   .wrap { width: min(920px, calc(100% - 32px)); }
-  .bar { flex-wrap: wrap; }
+  .site-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand tools"
+      "nav nav";
+    align-items: center;
+    column-gap: 16px;
+    row-gap: 14px;
+    padding-top: 22px;
+  }
+  .brand { grid-area: brand; letter-spacing: 0.18em; }
+  .tools { grid-area: tools; }
+  .site-nav {
+    grid-area: nav;
+    margin-left: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a { flex: none; padding: 2px 0; font-size: 14px; letter-spacing: 0.02em; }
+  .row {
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-items: center;
+  }
+  .row .thumb { grid-column: 1; grid-row: 1 / span 2; width: 72px; }
+  .row .thumb .painting,
+  .row .thumb .painting img { width: 72px; }
+  .row .name { grid-column: 2; grid-row: 1; }
+  .row .date { grid-column: 2; grid-row: 2; }
+  .neighbors { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .neighbors span:last-child { text-align: left; }
   .leaf,
   html[data-lang="en"] .leaf { grid-template-columns: 1fr; }
   .inscription,
